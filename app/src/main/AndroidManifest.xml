@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TelaConfigActivity"></activity>
+        <activity android:name=".MensagensActivity"
+            android:theme="@style/AppTheme.Toolbar"></activity>
+        <activity android:name=".TelaConfigActivity" />
         <activity
             android:name=".TelaInicialActivity"
             android:theme="@style/AppTheme.Toolbar" />

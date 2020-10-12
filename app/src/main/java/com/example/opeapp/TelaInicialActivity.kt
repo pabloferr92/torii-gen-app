@@ -9,14 +9,22 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
+import kotlinx.android.synthetic.main.navigation_view.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class TelaInicialActivity : DebugActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
+
+        this.genericLayoutMenu = layoutMenuLateral
+        this.genericMenuLateral = menu_lateral
 
         val args = intent.extras
         val nome_usuario = args?.getString("nome_usuario")
@@ -26,7 +34,10 @@ class TelaInicialActivity : DebugActivity() {
         supportActionBar?.title = "Treinos"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        configuraMenuLateral()
+
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)

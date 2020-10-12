@@ -4,4 +4,12 @@
     <string name="action_buscar">Buscar</string>
     <string name="action_atualizar">Atualizar</string>
     <string name="action_config">Configurações</string>
+    <string name="nav_treinos">Treinos</string>
+    <string name="nav_forum">Fórum</string>
+    <string name="nav_mensagens">Mensagens</string>
+    <string name="nav_localizacao">Localização</string>
+    <string name="nav_alunos">Alunos</string>
+    <string name="nav_turmas">Turmas</string>
+    <string name="nav_drawer_open">Abrir</string>
+    <string name="nav_drawer_close">Fechar</string>
 </resources>
