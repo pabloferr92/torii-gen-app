@@ -46,14 +46,14 @@ open class DebugActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 val intent = Intent(this, MensagensActivity::class.java)
                 startActivity(intent)
             }
-            R.id.nav_alunos -> {
-                Toast.makeText(this, "Menu alunos", Toast.LENGTH_SHORT). show()
+            R.id.nav_pagamentos -> {
+                Toast.makeText(this, "Menu pagamentos", Toast.LENGTH_SHORT). show()
             }
             R.id.nav_turmas -> {
                 Toast.makeText(this, "Menu turmas", Toast.LENGTH_SHORT). show()
             }
             R.id.nav_config -> {
-                Toast.makeText(this, "Menu confiurações", Toast.LENGTH_SHORT). show()
+                Toast.makeText(this, "Menu configurações", Toast.LENGTH_SHORT). show()
             }
         }
         genericLayoutMenu?.closeDrawer(GravityCompat.START)

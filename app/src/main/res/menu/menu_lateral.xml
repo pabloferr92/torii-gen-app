@@ -9,9 +9,9 @@
             android:checked="true"/>
 
         <item
-            android:id="@+id/nav_alunos"
-            android:title="@string/nav_alunos"
-            android:icon="@drawable/ic_forum_black"/>
+            android:id="@+id/nav_pagamentos"
+            android:title="@string/nav_pagamentos"
+            android:icon="@drawable/ic_pgmento"/>
         <item
             android:id="@+id/nav_mensagens"
             android:title="@string/nav_mensagens"
@@ -19,7 +19,7 @@
         <item
             android:id="@+id/nav_turmas"
             android:title="@string/nav_turmas"
-            android:icon="@android:drawable/ic_menu_directions"/>
+            android:icon="@drawable/ic_turmas"/>
         <item
             android:id="@+id/nav_config"
             android:title="@string/action_config"
