@@ -9,14 +9,27 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
+import kotlinx.android.synthetic.main.navigation_view.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class TelaInicialActivity : DebugActivity() {
+
+    private var treinos = listOf<Treino>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
+
+        this.genericLayoutMenu = layoutMenuLateral
+        this.genericMenuLateral = menu_lateral
 
         val args = intent.extras
         val nome_usuario = args?.getString("nome_usuario")
@@ -26,7 +39,33 @@ class TelaInicialActivity : DebugActivity() {
         supportActionBar?.title = "Treinos"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        configuraMenuLateral()
+        recyclerTreinos?.layoutManager = LinearLayoutManager(this)
+        recyclerTreinos?.itemAnimator = DefaultItemAnimator()
+        recyclerTreinos?.setHasFixedSize(true)
     }
+
+    override fun onResume() {
+        super.onResume()
+        taskTreinos()
+    }
+
+    fun taskTreinos() {
+        Thread {
+        this.treinos = TreinoService.getTreinos()
+        runOnUiThread {
+        recyclerTreinos?.adapter = TreinoAdapter(this.treinos) {onClickTreino(it)}
+            }
+        }.start()
+    }
+
+    fun onClickTreino(treino: Treino) {
+        var it = Intent(this, TreinoActivity::class.java)
+        it.putExtra("treino", treino)
+
+        startActivity(it)
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -49,7 +88,12 @@ class TelaInicialActivity : DebugActivity() {
             Toast.makeText(this, "Botão Config", Toast.LENGTH_LONG).show()
             val intent = Intent(this, TelaConfigActivity::class.java)
             startActivity(intent)
-        } else if (itemId == android.R.id.home) {
+        } else if (itemId == R.id.action_adicionar) {
+            val intent = Intent(this, NovoTreinoActivity::class.java)
+            startActivity(intent)
+        }
+
+         else if (itemId == android.R.id.home) {
             finish()
         }
 

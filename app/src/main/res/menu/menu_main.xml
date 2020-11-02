@@ -7,6 +7,11 @@
         app:showAsAction="always"
         android:icon="@drawable/ic_buscar_white"
         />
+        <item android:id="@+id/action_adicionar"
+            android:icon="@drawable/ic_adicionar_white"
+            android:title="@string/action_adicionar"
+            app:showAsAction="ifRoom"
+            />
         <item
             android:id="@+id/action_atualizar"
             android:icon="@drawable/ic_atualizar_white"
