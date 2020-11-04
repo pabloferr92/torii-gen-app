@@ -31,6 +31,7 @@ class TelaInicialActivity : DebugActivity() {
         this.genericLayoutMenu = layoutMenuLateral
         this.genericMenuLateral = menu_lateral
 
+
         val args = intent.extras
         val nome_usuario = args?.getString("nome_usuario")
         Toast.makeText(this, "Usuário: $nome_usuario", Toast.LENGTH_LONG).show()
@@ -43,6 +44,8 @@ class TelaInicialActivity : DebugActivity() {
         recyclerTreinos?.layoutManager = LinearLayoutManager(this)
         recyclerTreinos?.itemAnimator = DefaultItemAnimator()
         recyclerTreinos?.setHasFixedSize(true)
+
+        Toast.makeText(this, Prefs.getString("nome"), Toast.LENGTH_LONG).show()
     }
 
     override fun onResume() {
@@ -52,7 +55,7 @@ class TelaInicialActivity : DebugActivity() {
 
     fun taskTreinos() {
         Thread {
-        this.treinos = TreinoService.getTreinos()
+        this.treinos = TreinoService.getTreinos(this )
         runOnUiThread {
         recyclerTreinos?.adapter = TreinoAdapter(this.treinos) {onClickTreino(it)}
             }
