@@ -1,71 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textoInicial"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:text="Bem vindo ao Torii Gen"
-        android:layout_gravity="center"
-        android:textSize="22sp"
-        android:layout_marginBottom="12dp"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/labelUsuario"
+        android:id="@+id/texto_login"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="72dp"
+        android:text="@string/mensagem_login" />
+
+    <TextView
+        android:id="@+id/texto_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
         android:text="Usuário" />
 
     <EditText
         android:id="@+id/campoUsuario"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="56dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="Digite o nome do Usuário" />
+        android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/labelSenha"
+        android:id="@+id/texto_senha"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Senha"
-        android:gravity="center"/>
+        android:layout_height="30dp"
+        android:text="Senha" />
 
     <EditText
         android:id="@+id/campoSenha"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="Digite sua senha"
         android:inputType="textPassword" />
 
-    <FrameLayout
+    <Button
+        android:id="@+id/botaoLogin"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_height="68dp"
+        android:layout_marginBottom="64dp"
+        android:stateListAnimator="@null"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/botaoLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:stateListAnimator="@null"
-            android:text="Login" />
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="invisible" />
 
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible" />
+    <ImageView
+        android:id="@+id/campo_imagem"
+        android:layout_width="wrap_content"
+        android:layout_height="192dp"
+        android:src="@drawable/imagen_login" />
 
-    </FrameLayout>
+
+
 
 </LinearLayout>

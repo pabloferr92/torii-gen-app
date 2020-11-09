@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Torii Gen</string>
-    <string name="mensagem_login">Bem vindo ao Torii Gen</string>
+    <string name="mensagem_login">Bem vindo ao Torii Gen, Por favor faça seu Login</string>
     <string name="action_buscar">Buscar</string>
     <string name="action_atualizar">Atualizar</string>
     <string name="action_config">Configurações</string>
+    <string name="action_adicionar">Adicionar</string>
+
 </resources>
