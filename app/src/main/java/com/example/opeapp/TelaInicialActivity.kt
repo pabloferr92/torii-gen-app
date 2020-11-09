@@ -55,12 +55,7 @@ class TelaInicialActivity : DebugActivity() {
             intent.putExtra("activity_title","Professores")
             startActivity(intent)
         }
-
-
         }
-
-
-
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -113,9 +108,6 @@ class TelaInicialActivity : DebugActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-
-
-
         return super.onOptionsItemSelected(item)
 
     }
