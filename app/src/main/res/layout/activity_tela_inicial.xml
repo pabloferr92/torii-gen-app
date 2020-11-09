@@ -26,10 +26,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <!-- Colocar cardview com as disciplinas-->
+        <android.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerDisciplinas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:cacheColorHint="@android:color/transparent"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:listSelector="@android:color/transparent"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical">
+        </android.recyclerview.widget.RecyclerView>
 
             <TextView
                 android:id="@+id/mensagemInicial"
@@ -52,10 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 tools:visibility="invisible" />
-            />
 
-
-        </LinearLayout>
     </ScrollView>
 
     <Button
@@ -80,12 +86,9 @@
             android:scrollbarStyle="outsideOverlay"
             />
 
-    </ScrollView>
 
 </LinearLayout>
 
     <include layout="@layout/navigation_view" />
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
