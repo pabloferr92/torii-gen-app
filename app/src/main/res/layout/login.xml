@@ -27,6 +27,12 @@
         android:ems="10"
         android:inputType="textPersonName" />
 
+    <CheckBox
+        android:id="@+id/checkLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lembrar login" />
+
     <TextView
         android:id="@+id/texto_senha"
         android:layout_width="match_parent"
