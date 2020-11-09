@@ -19,16 +19,16 @@ class MainActivity : DebugActivity() {
 
         //imgLogin.setImageResource(R.drawable.imagen_login)
 
-        Prefs.setString("nome", "Fulano")
-        Prefs.setBoolean("treinador", true)
-        Prefs.setString("curso", "...")
+        //--Prefs.setString("nome", "Fulano")
+        //--Prefs.setBoolean("treinador", true)
+        //--Prefs.setString("curso", "...")
 
 
         textoInicial.setText("Bem vindo ao Torii Gen")
 
-        campoUsuario.setText(Prefs.getString("usuario"))
-        campoSenha.setText(Prefs.getString("senha"))
-        checkLogin.isChecked = Prefs.getBoolean("lembrar")
+        //--campoUsuario.setText(Prefs.getString("usuario"))
+        //campoSenha.setText(Prefs.getString("senha"))
+        //--checkLogin.isChecked = Prefs.getBoolean("lembrar")
 
         botaoLogin.setOnClickListener {onClickLogin() }
 
@@ -44,14 +44,14 @@ class MainActivity : DebugActivity() {
 
 
 
-            Prefs.setBoolean("lembrar", checkLogin.isChecked)
-            if (checkLogin.isChecked) {
-                Prefs.setString("usuario", valorUsuario)
-                Prefs.setString("senha", valorSenha)
-            } else {
-                Prefs.setString("usuario", "")
-                Prefs.setString("senha", "")
-            }
+           //-- Prefs.setBoolean("lembrar", checkLogin.isChecked)
+            //if (checkLogin.isChecked) {
+                //Prefs.setString("usuario", valorUsuario)
+                //Prefs.setString("senha", valorSenha)
+            //} else {
+                //Prefs.setString("usuario", "")
+                //Prefs.setString("senha", "")
+           //-- }
 
             val intent = Intent(this, TelaInicialActivity::class.java)
             val params = Bundle()

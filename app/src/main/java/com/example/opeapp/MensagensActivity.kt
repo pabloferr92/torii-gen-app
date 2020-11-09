@@ -11,7 +11,6 @@ class MensagensActivity : DebugActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mensagens)
 
-        //this.genericLayoutMenu = layoutMenuLateral
         this.genericMenuLateral = menu_lateral
 
         setSupportActionBar(toolbar_view)

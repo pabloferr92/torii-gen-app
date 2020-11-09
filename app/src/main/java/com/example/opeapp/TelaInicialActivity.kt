@@ -1,5 +1,6 @@
 package com.example.opeapp
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,9 +21,11 @@ import kotlinx.android.synthetic.main.activity_tela_inicial.*
 import kotlinx.android.synthetic.main.navigation_view.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class TelaInicialActivity : DebugActivity() {
+class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    private val context: Context get() = this
     private var treinos = listOf<Treino>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +37,10 @@ class TelaInicialActivity : DebugActivity() {
 
         val args = intent.extras
         val nome_usuario = args?.getString("nome_usuario")
+        val nome = args?.getString("nome")
+        val numero = intent.getIntExtra("nome",0)
         Toast.makeText(this, "Usuário: $nome_usuario", Toast.LENGTH_LONG).show()
-
+        Toast.makeText(this, "Numero: $numero", Toast.LENGTH_LONG).show()
         setSupportActionBar(toolbar_view)
         supportActionBar?.title = "Treinos"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -53,11 +58,18 @@ class TelaInicialActivity : DebugActivity() {
         taskTreinos()
     }
 
+    fun enviaNotificacao(treino: Treino) {
+        val intent = Intent(this, TreinoActivity::class.java)
+        intent.putExtra("treino", treino)
+        NotificationUtil.create(this, 1, intent, "Torii Gen", "Você tem nova atividade na ${treino.nome}")
+    }
+
     fun taskTreinos() {
         Thread {
         this.treinos = TreinoService.getTreinos(this )
         runOnUiThread {
         recyclerTreinos?.adapter = TreinoAdapter(this.treinos) {onClickTreino(it)}
+            enviaNotificacao(this.treinos.get(0))
             }
         }.start()
     }

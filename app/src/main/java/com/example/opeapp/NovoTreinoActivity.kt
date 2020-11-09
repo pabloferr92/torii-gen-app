@@ -11,13 +11,13 @@ class NovoTreinoActivity : AppCompatActivity() {
 
         botaoSalvarTreino.setOnClickListener {
             Thread {
-                val d = Treino()
-                d.nome = nomeTreino.text.toString()
-                d.treinador = treinador.text.toString()
-                d.foto = foto.text.toString()
-                d.ementa = ementa.text.toString()
+                val treino = Treino()
+                treino.nome = nomeTreino.text.toString()
+                treino.treinador = treinador.text.toString()
+                treino.foto = foto.text.toString()
+                treino.ementa = ementa.text.toString()
 
-                TreinoService.save(d)
+                TreinoService.save(treino)
                 runOnUiThread{
                     finish()
                 }
