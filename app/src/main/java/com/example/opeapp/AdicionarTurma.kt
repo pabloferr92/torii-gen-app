@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import br.com.fernandosousa.lmsapp.TelaInicialActivity
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
 
 class AdicionarTurma : AppCompatActivity() {
