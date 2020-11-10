@@ -1,17 +1,17 @@
 <resources>
-    <string name="app_name">Torii Gen</string>
-    <string name="mensagem_login">Bem vindo ao Torii Gen</string>
+    <string name="app_name">TORII-GEN APP</string>
+    <string name="mensagem_login">Faça seu Login</string>
+
     <string name="action_buscar">Buscar</string>
     <string name="action_atualizar">Atualizar</string>
-    <string name="action_config">Configurações</string>
-    <string name="nav_treinos">Treinos</string>
-    <string name="nav_forum">Fórum</string>
-    <string name="nav_mensagens">Mensagens</string>
-    <string name="nav_localizacao">Localização</string>
-    <string name="nav_alunos">Alunos</string>
-    <string name="nav_turmas">Turmas</string>
-    <string name="nav_drawer_open">Abrir</string>
-    <string name="nav_drawer_close">Fechar</string>
-    <string name="nav_pagamentos">Pagamentos</string>
     <string name="action_adicionar">Adicionar</string>
+    <string name="action_config">Configurações</string>
+    <string name="action_remover">Remover</string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+
+    <!-- KEY para Maps API-->
+    <string name="API_KEY">AIzaSyBXDxpJ_bzzSKd2ifSy6Q_jPckcXEW7540</string>
+
 </resources>
