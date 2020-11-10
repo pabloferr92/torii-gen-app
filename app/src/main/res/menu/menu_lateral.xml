@@ -18,6 +18,11 @@
             android:title="Mensagens" />
 
         <item
+            android:id="@+id/nav_modalidades"
+            android:icon="@drawable/ic_chat_black"
+            android:title="Modalidades" />
+
+        <item
             android:id="@+id/nav_localizacao"
             android:icon="@drawable/ic_local_black"
             android:title="Localização" />

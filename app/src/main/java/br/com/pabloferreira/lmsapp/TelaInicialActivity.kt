@@ -142,15 +142,15 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_diciplinas -> {
-                Toast.makeText(this, "Clicou Disciplinas", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Ir para  Disciplinas", Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_mensagens -> {
-                Toast.makeText(this, "Clicou Mensagens", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Ir para  Mensagens", Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_forum -> {
-                Toast.makeText(this, "Clicou Forum", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Ir para  Forum", Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_localizacao -> {
@@ -159,7 +159,12 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             }
 
             R.id.nav_config -> {
-                Toast.makeText(this, "Clicou Config", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Ir para  Config", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_modalidades -> {
+                Toast.makeText(this, "Ir para Modalidades", Toast.LENGTH_SHORT).show()
+                var intent = Intent(this, RandomActivity::class.java)
+                startActivity(intent)
             }
         }
 
