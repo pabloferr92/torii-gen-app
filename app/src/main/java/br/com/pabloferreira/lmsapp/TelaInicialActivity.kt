@@ -47,7 +47,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         setSupportActionBar(toolbar)
 
         // alterar título da ActionBar
-        supportActionBar?.title = "Disciplinas"
+        supportActionBar?.title = "Avisos"
 
         // up navigation
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -164,6 +164,11 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             R.id.nav_modalidades -> {
                 Toast.makeText(this, "Ir para Modalidades", Toast.LENGTH_SHORT).show()
                 var intent = Intent(this, RandomActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.nav_alunos -> {
+                Toast.makeText(this, "Indo para alunos", Toast.LENGTH_SHORT).show()
+                var intent = Intent(this, AlunoActivity::class.java)
                 startActivity(intent)
             }
         }

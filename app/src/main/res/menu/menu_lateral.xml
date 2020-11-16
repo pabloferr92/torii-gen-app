@@ -8,6 +8,11 @@
             android:checked="true" />
 
         <item
+            android:id="@+id/nav_alunos"
+            android:icon="@drawable/ic_adicionar_black"
+            android:title="Alunos" />
+
+        <item
             android:id="@+id/nav_forum"
             android:icon="@drawable/ic_forum_black"
             android:title="Fórum" />
