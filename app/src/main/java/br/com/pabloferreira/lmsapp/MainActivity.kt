@@ -8,19 +8,26 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.lifecycle.Observer
+import br.com.pabloferreira.lmsapp.models.LoginViewModel
 import kotlinx.android.synthetic.main.login.*
 
 class MainActivity : br.com.pabloferreira.lmsapp.DebugActivity() {
+    private lateinit var mViewModel: LoginViewModel
 
     private val context: Context get() = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
+//        observe()
+        Prefs.setString("ope_token", "")
+
 
         // encontra objeto pelo id
         campo_imagem.setImageResource(R.drawable.imagem_login)
 
         texto_login.text = getString(R.string.mensagem_login)
+
 
         // evento no botao de login forma 1
 //        botao_login.setOnClickListener {
@@ -51,6 +58,8 @@ class MainActivity : br.com.pabloferreira.lmsapp.DebugActivity() {
         val valorUsuario = campo_usuario.text.toString()
         val valorSenha = campo_senha.text.toString()
 
+        Log.d("LOG_TORII", "usuario"+campo_usuario)
+
         // armazenar valor do checkbox
         Prefs.setBoolean("lembrar", checkBoxLogin.isChecked)
         // verificar se é para pembrar nome e senha
@@ -62,23 +71,51 @@ class MainActivity : br.com.pabloferreira.lmsapp.DebugActivity() {
             Prefs.setString("lembrarSenha", "")
         }
 
+        val login_view = LoginViewModel()
+        val token = login_view.doLogin(valorUsuario,valorSenha)
 
-        // criar intent
-        val intent = Intent(context, TelaInicialActivity::class.java)
-        // colocar parâmetros (opcional)
-        val params = Bundle()
-        params.putString("nome", "Fernando Sousa")
-        intent.putExtras(params)
+//        // criar intent
+//        val intent = Intent(context, TelaInicialActivity::class.java)
+//        // colocar parâmetros (opcional)
+//        val params = Bundle()
+//        params.putString("nome", "Fernando Sousa")
+//        intent.putExtras(params)
+//
+//        // enviar parâmetros simplificado
+//        intent.putExtra("numero", 10)
+//
+//        // fazer a chamada
+//        //startActivity(intent)
+//
+//        // fazer a chamada esperando resultado
+//        startActivity(intent)
 
-        // enviar parâmetros simplificado
-        intent.putExtra("numero", 10)
+        val token_pref = Prefs.getString("ope_token")
+        Toast.makeText(this, token_pref.toString(), Toast.LENGTH_LONG).show()
 
-        // fazer a chamada
-        //startActivity(intent)
+        if (token_pref!=""){
+            val intent = Intent(context, TelaInicialActivity::class.java)
+            startActivity(intent)
+        } else{
+            Toast.makeText(this, "Usuário ou senha inválidos", Toast.LENGTH_LONG).show()
 
-        // fazer a chamada esperando resultado
-        startActivity(intent)
+        }
 
+
+
+    }
+
+    fun observe(){
+        mViewModel.login.observe(this, Observer {
+            if (it){
+                startActivity(Intent(this, TelaInicialActivity::class.java))
+                Toast.makeText(this, "Login com sucesso", Toast.LENGTH_LONG).show()
+
+            } else{
+                Toast.makeText(this, "Usuário ou senha inválidos", Toast.LENGTH_LONG).show()
+            }
+
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -91,10 +128,9 @@ class MainActivity : br.com.pabloferreira.lmsapp.DebugActivity() {
 
     override fun onResume() {
         super.onResume()
-        // abrir a disciplina caso clique na notificação com o aplicativo fechado
         abrirDisciplina()
-        // mostrar no log o tokem do firebase
-        Log.d("firebase", "Firebase Token: ${Prefs.getString("FB_TOKEN")}")
+        Prefs.setString("ope_token", "")
+
     }
 
     fun abrirDisciplina() {

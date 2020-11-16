@@ -13,5 +13,7 @@
 
     <!-- KEY para Maps API-->
     <string name="API_KEY">AIzaSyBXDxpJ_bzzSKd2ifSy6Q_jPckcXEW7540</string>
+    <string name="API_TOKEN">""</string>
+
 
 </resources>
